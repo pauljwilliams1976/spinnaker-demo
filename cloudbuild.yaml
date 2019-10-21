@@ -3,5 +3,7 @@ steps:
     entrypoint: 'mvn'
     args: ['clean', 'install']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '--tag=gcr.io/$PROJECT_ID/spring-boot', '.']
+    args: ['build', '--tag=gcr.io/$PROJECT_ID/spinnaker-demo', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'quay.io/pauljwilliams1976/spinnaker-demo']
 images: ['gcr.io/$PROJECT_ID/spring-boot']
